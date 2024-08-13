@@ -96,16 +96,258 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	// heading five
 
 	const titleFive = document.querySelector(".title_five");
-	const titleFiveContainer =
-		document.querySelector(".text_wrapper");
 
 	gsap.from(titleFive, {
 		backgroundPosition: "-100% 0%",
 		ease: "expo.out",
 		scrollTrigger: {
 			trigger: titleFive,
-			scrub: 1,
+			scrub: 2,
 			start: "top 80%",
 		},
 	});
+
+	// scrub text
+	const scrubText = document.querySelector(".scrub_text");
+	var scrubTextSplit = new SplitText(scrubText, {
+		types: "chars",
+		tagName: "span-char",
+	});
+
+	gsap.from(scrubTextSplit.chars, {
+		opacity: 0.3,
+		ease: "power1.out",
+		duration: 0.5,
+		stagger: 0.1,
+
+		scrollTrigger: {
+			trigger: scrubText,
+			pin: true,
+			scrub: 3,
+			start: "top center",
+			end: "+=100%",
+		},
+	});
+
+	// tag scroll
+	const lineTop = document.querySelector(".tag_line_top");
+	const lineMiddle = document.querySelector(".tag_line_middle");
+	const lineBottom = document.querySelector(".tag_line_bottom");
+
+	gsap.fromTo(
+		lineTop,
+		{
+			x: 0,
+			duration: 3,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineTop,
+				scrub: 5,
+				start: "top 80%",
+			},
+		},
+		{
+			x: "-50%",
+			duration: 1,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineTop,
+				scrub: 5,
+				start: "top 80%",
+			},
+		}
+	);
+
+	gsap.fromTo(
+		lineMiddle,
+		{
+			x: "-50%",
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineMiddle,
+				scrub: 5,
+				start: "top 80%",
+			},
+		},
+		{
+			x: 0,
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineMiddle,
+				scrub: 5,
+				start: "top 80%",
+			},
+		}
+	);
+
+	gsap.fromTo(
+		lineBottom,
+		{
+			x: 0,
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineBottom,
+				scrub: 5,
+				start: "top 80%",
+			},
+		},
+		{
+			x: "-50%",
+			duration: 1,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: lineBottom,
+				scrub: 5,
+				start: "top 80%",
+			},
+		}
+	);
+
+	// moving card
+	const cardUp = document.querySelectorAll(".card_up");
+	const cardDown = document.querySelectorAll(".card_down");
+
+	cardUp.forEach((card) => {
+		gsap.fromTo(
+			card,
+			{
+				y: "-20%",
+				duration: 1,
+				ease: "power1.out",
+				scrollTrigger: {
+					trigger: card,
+					scrub: 2,
+					start: "top 80%",
+				},
+			},
+			{
+				y: "20%",
+				duration: 1,
+				ease: "power1.out",
+				scrollTrigger: {
+					trigger: card,
+					scrub: 2,
+					start: "top 80%",
+				},
+			}
+		);
+	});
+
+	cardDown.forEach((card) => {
+		gsap.fromTo(
+			card,
+			{
+				y: "20%",
+				duration: 1,
+				ease: "power1.out",
+				scrollTrigger: {
+					trigger: card,
+					scrub: 2,
+					start: "top 80%",
+				},
+			},
+			{
+				y: "-20%",
+				duration: 1,
+				ease: "power1.out",
+				scrollTrigger: {
+					trigger: card,
+					scrub: 2,
+					start: "top 80%",
+				},
+			}
+		);
+	});
+
+	// typing text
+	const typingText = document.querySelector(".typing_text");
+	const typingTextWrapper = document.querySelector(
+		".typing_text_section"
+	);
+	const card_top_left = document.querySelector(".card_top_left");
+	const card_top_right =
+		document.querySelector(".card_top_right");
+	const card_bottom_left =
+		document.querySelector(".card_bottom_left");
+	const card_bottom_right =
+		document.querySelector(".card_bottom_right");
+
+	var typingTextSplit = new SplitText(typingText, {
+		types: "chars",
+		tagName: "span-char",
+	});
+
+	gsap.from(typingTextSplit.chars, {
+		display: "none",
+		ease: "power1.out",
+		duration: 1,
+		stagger: 0.5,
+
+		scrollTrigger: {
+			trigger: typingTextWrapper,
+			scrub: 1,
+			start: "top center",
+		},
+	});
+
+	gsap.from(typingTextWrapper, {
+		ease: "power1.out",
+		duration: 1,
+		stagger: 0.5,
+
+		scrollTrigger: {
+			trigger: typingTextWrapper,
+			scrub: 1,
+			start: "top top",
+			pin: true,
+		},
+	});
+
+	const cardsTimeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: typingTextWrapper,
+			scrub: 1,
+			start: "top center",
+		},
+	});
+
+	cardsTimeline.from(card_top_left, {
+		y: "-100%",
+		x: "-100%",
+		ease: "power1.out",
+		duration: 1,
+	})
+		.from(
+			card_top_right,
+			{
+				y: "-100%",
+				x: "100%",
+				ease: "power1.out",
+				duration: 1,
+			},
+			"-=1"
+		)
+		.from(
+			card_bottom_left,
+			{
+				y: "100%",
+				x: "-100%",
+				ease: "power1.out",
+				duration: 1,
+			},
+			"-=1"
+		)
+		.from(
+			card_bottom_right,
+			{
+				y: "100%",
+				x: "100%",
+				ease: "power1.out",
+				duration: 1,
+			},
+			"-=1"
+		);
 });
