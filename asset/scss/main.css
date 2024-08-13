@@ -1,0 +1,128 @@
+.imgbox_full,
+.imgbox {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.imgbox_full img,
+.imgbox img {
+  width: 100%;
+  height: auto;
+}
+
+.imgbox_full {
+  height: 100%;
+}
+.imgbox_full img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+* {
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff;
+  color: #000;
+  position: static;
+  scroll-behavior: smooth;
+}
+
+select,
+input,
+button:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+section .content_wrapper {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+section .content_wrapper .git_button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 45px;
+}
+section .content_wrapper .git_button, section .content_wrapper .git_button * {
+  cursor: pointer;
+}
+
+.heading_section .title_one,
+.heading_section .title_tow,
+.heading_section .title_three,
+.heading_section .title_four,
+.heading_section .title_five {
+  font-size: 50px;
+  line-height: 58px;
+  color: #1f374f;
+  font-family: "Inter", Sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.heading_section .title_one span,
+.heading_section .title_tow span,
+.heading_section .title_three span,
+.heading_section .title_four span,
+.heading_section .title_five span {
+  color: #FF642E;
+}
+.heading_section .title_three {
+  -webkit-perspective: 400px;
+          perspective: 400px;
+}
+.heading_section .title_four .split-line {
+  overflow: hidden;
+}
+.heading_section .text_wrapper {
+  position: relative;
+}
+.heading_section .text_wrapper .title_five {
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, hsl(210, 43.6%, 21.6%)), color-stop(50%, hsla(210, 43.6%, 21.6%, 0.3)));
+  background: linear-gradient(to right, hsl(210, 43.6%, 21.6%) 50%, hsla(210, 43.6%, 21.6%, 0.3) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200%;
+  background-position: -200% 0%;
+  display: inline-block;
+}
+.heading_section .text_wrapper .title_five span {
+  background: -webkit-gradient(linear, left top, right top, from(#FF642E), to(#FF642E));
+  background: linear-gradient(90deg, #FF642E, #FF642E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=main.css.map */
