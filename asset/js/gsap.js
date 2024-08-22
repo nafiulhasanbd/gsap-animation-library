@@ -264,16 +264,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 	// typing text
 	const typingText = document.querySelector(".typing_text");
-	const typingTextWrapper = document.querySelector(
-		".typing_text_section"
-	);
+	const typingTextWrapper = document.querySelector(".typing_text_section");
 	const card_top_left = document.querySelector(".card_top_left");
-	const card_top_right =
-		document.querySelector(".card_top_right");
-	const card_bottom_left =
-		document.querySelector(".card_bottom_left");
-	const card_bottom_right =
-		document.querySelector(".card_bottom_right");
+	const card_top_right = document.querySelector(".card_top_right");
+	const card_bottom_left = document.querySelector(".card_bottom_left");
+	const card_bottom_right = document.querySelector(".card_bottom_right");
 
 	var typingTextSplit = new SplitText(typingText, {
 		types: "chars",
@@ -350,4 +345,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			},
 			"-=1"
 		);
+
+	// stack cards
+
+	const cards = gsap.utils.toArray(".vertical_card");
+	const spacer = 50;
+	const minScale = 1;
+
+	const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
+
+	cards.forEach((card, index) => {
+		const scaleVal = distributor(index, cards[index], cards);
+
+		const tween = gsap.to(card, {
+			scrollTrigger: {
+				trigger: card,
+				start: `top top`,
+				scrub: 1,
+			},
+			ease: "none",
+		});
+		ScrollTrigger.create({
+			trigger: card,
+			start: `top-=${ 200 + index * spacer} top`,
+			end: `bottom+=${-400 + cards.length * spacer} bottom`,
+			endTrigger: ".vertical_cards",
+			pin: true,
+			pinSpacing: false,
+			id: "pin",
+		});
+	});
 });
