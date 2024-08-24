@@ -19,6 +19,10 @@
      object-fit: cover;
 }
 
+.spacer {
+  height: 1000px;
+}
+
 * {
   cursor: default;
 }
@@ -77,6 +81,14 @@ section .content_wrapper .git_button {
   font-size: 45px;
 }
 section .content_wrapper .git_button, section .content_wrapper .git_button * {
+  cursor: pointer;
+}
+section .git_button {
+  font-size: 65px;
+  text-align: center;
+  display: block;
+}
+section .git_button, section .git_button * {
   cursor: pointer;
 }
 
@@ -307,4 +319,76 @@ section .content_wrapper .git_button, section .content_wrapper .git_button * {
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 40px;
+}
+
+.scrollig_grid_section {
+  height: 100vh;
+}
+.scrollig_grid_section .grid_content {
+  overflow: hidden;
+  width: 100%;
+  height: 70vh;
+}
+.scrollig_grid_section .grid_content .grid_wrapper {
+  width: 90%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-transform: translateX(36%) skew(-35deg, 10deg);
+          transform: translateX(36%) skew(-35deg, 10deg);
+}
+.scrollig_grid_section .grid_content .grid_wrapper .grid_column {
+  width: calc(33.3333333333% - 13.3333333333px);
+}
+.scrollig_grid_section .grid_content .grid_wrapper .grid_column .grid {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 40px;
+  background-color: #1f374f;
+  margin-bottom: 20px;
+}
+
+.scrolling_banner_section {
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.scrolling_banner_section .grid_content {
+  width: 40%;
+  height: 90vh;
+  overflow: hidden;
+  border-radius: 40px;
+  background-color: #121720;
+  margin-right: 40px;
+  padding: 20px;
+}
+.scrolling_banner_section .grid_content .grid_wrapper {
+  width: calc(100vw - 60px);
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-transform: translateX(-15%) skew(-35deg, 10deg);
+          transform: translateX(-15%) skew(-35deg, 10deg);
+}
+.scrolling_banner_section .grid_content .grid_wrapper .grid_column {
+  width: calc(33.3333333333% - 13.3333333333px);
+}
+.scrolling_banner_section .grid_content .grid_wrapper .grid_column .grid {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 40px;
+  background-color: #1f374f;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=main.css.map */

@@ -41,3 +41,11 @@ $font-size-learge: 25px;
         object-fit: cover;
     }
 }
+
+.spacer{
+    height: 1000px;
+}
+
+@function flexWidth($cardCount, $gap) {
+    @return calc(100% / $cardCount - (($gap * ($cardCount - 1)) / $cardCount));
+}

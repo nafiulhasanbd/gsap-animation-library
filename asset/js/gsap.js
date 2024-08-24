@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		});
 		ScrollTrigger.create({
 			trigger: card,
-			start: `top-=${ 200 + index * spacer} top`,
+			start: `top-=${200 + index * spacer} top`,
 			end: `bottom+=${-400 + cards.length * spacer} bottom`,
 			endTrigger: ".vertical_cards",
 			pin: true,
@@ -375,4 +375,192 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			id: "pin",
 		});
 	});
+
+	// scrolling grid
+	const col_one = document.querySelector(".grid_column.col_one");
+	const col_two = document.querySelector(".grid_column.col_two");
+	const col_three = document.querySelector(".grid_column.col_three");
+
+	gsap.fromTo(
+		col_one,
+		{
+			y: 0,
+			duration: 3,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_one,
+				scrub: 2,
+				start: "top 80%",
+			},
+		},
+		{
+			y: "-40%",
+			duration: 1,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_one,
+				scrub: 2,
+				start: "top 80%",
+			},
+		}
+	);
+
+	gsap.fromTo(
+		col_two,
+		{
+			y: "-20%",
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_two,
+				scrub: 1,
+				start: "top 80%",
+			},
+		},
+		{
+			y: 0,
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_two,
+				scrub: 1,
+				start: "top 80%",
+			},
+		}
+	);
+
+	gsap.fromTo(
+		col_three,
+		{
+			y: 0,
+			duration: 5,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_three,
+				scrub: 5,
+				start: "top 80%",
+			},
+		},
+		{
+			y: "-70%",
+			duration: 1,
+			ease: "power1.out",
+			scrollTrigger: {
+				trigger: col_three,
+				scrub: 5,
+				start: "top 80%",
+			},
+		}
+	);
+
+	// scrolling banner
+	const banner = document.querySelector(".scrolling_banner_section");
+	const bannerGrid = document.querySelector(".scrolling_banner_section .grid_content");
+	const bannerGridWrapper = document.querySelector(".scrolling_banner_section .grid_content .grid_wrapper");
+	const banner_col_one = document.querySelector(".scrolling_banner_section .grid_content .grid_wrapper .banner_col_one");
+	const banner_col_two = document.querySelector(".scrolling_banner_section .grid_content .grid_wrapper .banner_col_two");
+	const banner_col_three = document.querySelector(".scrolling_banner_section .grid_content .grid_wrapper .banner_col_three");
+	const banner_col_four = document.querySelector(".scrolling_banner_section .grid_content .grid_wrapper .banner_col_four");
+
+	const bannerTimeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: banner,
+			scrub: 3,
+			start: "top top",
+			pin: true,
+		},
+	});
+
+	bannerTimeline.fromTo(
+		bannerGrid,
+		{
+			height: "90vh",
+			width: "40%",
+			marginRight: "40px",
+			borderRadius: "40px",
+			duration: 1,
+			ease: "power1.out",
+		},
+		{
+			height: "auto",
+			width: "100%",
+			marginRight: "0px",
+			borderRadius: "0px",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
+
+	bannerTimeline.fromTo(
+		bannerGridWrapper,
+		{
+			transform: "translateX(-15%) skew(-35deg, 10deg)",
+			duration: 1,
+			ease: "power1.out",
+		},
+		{
+			transform: "translateX(0%) skew(0deg, 0deg)",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
+
+	bannerTimeline.fromTo(
+		banner_col_one,
+		{
+			y: 0,
+			duration: 3,
+			ease: "power1.out",
+		},
+		{
+			y: "-10%",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
+	bannerTimeline.fromTo(
+		banner_col_two,
+		{
+			y: 0,
+			duration: 3,
+			ease: "power1.out",
+		},
+		{
+			y: "-20%",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
+	bannerTimeline.fromTo(
+		banner_col_three,
+		{
+			y: 0,
+			duration: 3,
+			ease: "power1.out",
+		},
+		{
+			y: "-5%",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
+	bannerTimeline.fromTo(
+		banner_col_four,
+		{
+			y: 0,
+			duration: 3,
+			ease: "power1.out",
+		},
+		{
+			y: "-30%",
+			duration: 1,
+			ease: "power1.out",
+		},
+		0
+	);
 });
